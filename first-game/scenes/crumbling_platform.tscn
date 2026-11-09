@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c33xyp3hvm6c8"]
+
+[ext_resource type="Texture2D" uid="uid://dm0q0ji73s7sh" path="res://assets/sprites/platforms.png" id="1_tex"]
+[ext_resource type="Script" uid="uid://bxghou4cujpll" path="res://scripts/crumbling_platform.gd" id="2_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(32, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_detector"]
+size = Vector2(30, 8)
+
+[node name="CrumblingPlatform" type="AnimatableBody2D" unique_id=109977686]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1198985837]
+modulate = Color(1, 0.78, 0.55, 1)
+texture = ExtResource("1_tex")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1393511707]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_platform")
+one_way_collision = true
+
+[node name="Detector" type="Area2D" parent="." unique_id=889427520]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=1460748701]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_detector")

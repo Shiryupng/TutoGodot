@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://yfsd1w4reptb" path="res://scenes/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cvwd5idvcbc86" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://btt2ow2m21lnc" path="res://scenes/slime.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" path="res://scenes/level_goal.tscn" id="7_goal"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="8_hud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -264,3 +266,9 @@ autoplay = &"move"
 
 [node name="Node2D" parent="." unique_id=807875837 instance=ExtResource("6_p57ef")]
 position = Vector2(199, 38)
+
+[node name="goal" parent="." instance=ExtResource("7_goal")]
+position = Vector2(520, 8)
+next_scene = "res://scenes/level2.tscn"
+
+[node name="HUD" parent="." instance=ExtResource("8_hud")]

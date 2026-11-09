@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_win"]
+[ext_resource type="FontFile" uid="uid://d0p5vll3ribkj" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_font"]
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_win")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043, 0.055, 0.11, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Center/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.35, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "NIVEL 2 COMPLETADO"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/Info"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+text = "Pulsa ESPACIO para volver al inicio"
+horizontal_alignment = 1
+
+[node name="Coins" type="Label" parent="Center/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.85, 0.95, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+text = "Monedas recogidas: 0 / 0"
+horizontal_alignment = 1
+
+[node name="Bonus" type="Label" parent="Center/Info"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "Te has ganado un cigarro"
+horizontal_alignment = 1

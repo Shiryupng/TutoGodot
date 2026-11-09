@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/level_goal.gd" id="1_goal"]
+[ext_resource type="Texture2D" uid="uid://cn1tnn7uhqd02" path="res://assets/sprites/coin.png" id="2_coin"]
+[ext_resource type="FontFile" uid="uid://d0p5vll3ribkj" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_font"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goal"]
+atlas = ExtResource("2_coin")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goal"]
+radius = 16.0
+
+[node name="LevelGoal" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_goal")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_goal")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -46.0
+offset_right = 30.0
+offset_bottom = -28.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 8
+text = "SALIDA"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_goal")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
